@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template">
+  <t owl="1" t-inherit="web.WebClient" t-inherit-mode="extension">
+    <xpath expr="//ActionContainer" position="replace">
+    <div class="d-flex flex-row overflow-scroll h-100">
+      <SideMenu/>
+      <ActionContainer class="flex-fill"/>
+    </div>
+    </xpath>
+  </t>
+</templates>

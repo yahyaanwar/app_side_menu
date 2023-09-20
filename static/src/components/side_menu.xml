@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template">
+  <t t-name="app_side_menu.SideMenu" owl="1">
+  <aside class="d-flex flex-column bg-primary-light h-100">
+    <div class="side-menu-container d-flex flex-column px-2 py-2 pb-5 overflow-scroll">
+      <div t-foreach="menuService.getApps()" t-as="app" t-key="app.id" class="side-menu rounded px-1 py-1 mb-1" t-att-class="{
+          'shadow bg-primary': state.currentAppID === app.id
+        }" t-on-click="ev => this.navigate(app)">
+        <div class=" d-flex align-items-center rounded" t-att-class="{
+          'text-primary bg-white': state.expand and state.currentAppID !== app.id,
+          'text-white bg-primary': state.currentAppID === app.id
+        }">
+          <img t-att-src="getImgSrc(app)" t-att-alt="app.name" width="30px"/>
+          <span class="mx-2" t-att-class="{
+              'd-none': !state.expand
+            }" t-esc="app.name"/>
+        </div>
+      </div>
+    </div>
+    <div class="toggle-expand bg-primary text-white text-center mt-auto" t-on-click="this.toggleExpand">
+      <i t-att-class="{
+        'fa fa-caret-left': state.expand,
+        'fa fa-caret-right': !state.expand
+      }"/>
+    </div>
+  </aside>
+  </t>
+</templates>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template">
+  <t t-name="test" owl="1" t-inherit="web.NavBar.AppsMenu" t-inherit-mode="extension">
+    <xpath expr="//Dropdown" position="replace">
+      <div data-hotkey="h" class="o_menu_brand d-md-block" t-on-click="() => this.openMainPalette()">
+        <i class="fa fa-search"/>
+      </div>
+    </xpath>
+  </t>
+</templates>

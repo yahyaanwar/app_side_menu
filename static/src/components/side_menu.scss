@@ -1,0 +1,68 @@
+aside {
+    .side-menu-container {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    .toggle-expand {
+        font-size: 2em;
+        box-shadow: 0px 0px 20px 30px lighten(map-get($theme-colors, 'primary'), 25);
+        clip-path: inset(-50px 0px 0px 0px);
+    }
+    .side-menu {
+        cursor: pointer;
+
+        &:hover {
+            background-color: white;
+        }
+    }
+}
+
+.editor_has_snippets_hide_backend_navbar aside {
+    display: none !important;
+}
+
+html .o_web_client > div > .o_action_manager {
+    direction: ltr;
+    flex: 1 1 auto;
+    height: 100%;
+    overflow: hidden;
+
+    > .o_action {
+        height: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        overflow: hidden;
+
+        @include media-breakpoint-up(lg) {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        > .o_control_panel {
+            flex: 0 0 auto;
+        }
+        .o_content {
+            flex: 1 1 auto;
+            position: relative;
+            overflow: auto;
+            height: 100%;
+        }
+
+        @include media-breakpoint-down(md) {
+            &:not(.o_action_delegate_scroll) {
+                overflow: auto;
+
+                .o_content {
+                    overflow: initial;
+                }
+            }
+        }
+    }
+}
